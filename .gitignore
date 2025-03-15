@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+Dataset/Data
+
 # Distribution / packaging
 .Python
 build/
@@ -25,6 +27,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+serenade/serenade/Dataset/Data/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -99,7 +103,7 @@ ipython_config.py
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
 #   commonly ignored for libraries.
 #   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
+poetry.lock
 
 # pdm
 #   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
