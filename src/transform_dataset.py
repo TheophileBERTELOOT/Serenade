@@ -1,5 +1,4 @@
-from  serenade.Dataset.DataTransformer import DataTransformer
-
+from serenade.dataset.data_transformer import DataTransformer
 
 
 def cli():

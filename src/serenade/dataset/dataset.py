@@ -1,6 +1,7 @@
-from torch.utils.data import Dataset, DataLoader
-from sklearn.preprocessing import LabelEncoder
 from PIL import Image
+from sklearn.preprocessing import LabelEncoder
+from torch.utils.data import DataLoader, Dataset
+
 
 class SpectrogramDataset(Dataset):
     def __init__(self, spectrograms, labels):
