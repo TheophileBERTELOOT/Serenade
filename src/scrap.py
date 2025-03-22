@@ -9,21 +9,15 @@ from serenade.dataset.scrapper import Scrapper
 @click.command()
 @click.option(
     "-d",
-    "--data-path",
+    "--data-dir",
     type=click.Path(exists=True),
     default=Path("C:\\Users\\baske\\projects\\Serenade\\data"),
 )
 @click.option(
-    "-bird-csv",
-    "--bird-species-csv",
+    "-rec-csv",
+    "--recordings-csv",
     type=click.Path(exists=False),
-    default=Path("C:\\Users\\baske\\projects\\Serenade\\data\\bird_species.csv"),
-)
-@click.option(
-    "-caracteristics-dir",
-    "--species-caracteristics-dir",
-    type=click.Path(exists=True),
-    default=Path("C:\\Users\\baske\\projects\\Serenade\\data\\caracs"),
+    default=Path("C:\\Users\\baske\\projects\\Serenade\\data\\recordings.csv"),
 )
 @click.option(
     "-audios-dir",
@@ -32,26 +26,24 @@ from serenade.dataset.scrapper import Scrapper
     default=Path("C:\\Users\\baske\\projects\\Serenade\\data\\audios"),
 )
 @click.option(
-    "--scrap-species", is_flag=True, show_default=True, default=False, type=bool
+    "--scrap-recordings", is_flag=True, show_default=True, default=False, type=bool
 )
 def scrap(
-    data_path: Path,
-    bird_species_csv: Path,
-    species_caracteristics_dir: Path,
+    data_dir: Path,
+    recordings_csv: Path,
     audios_dir: Path,
-    scrap_species: bool,
+    scrap_recordings: bool,
 ):
     scrapper = Scrapper(
-        data_path=data_path,
-        bird_species_csv=bird_species_csv,
-        species_caracteristics_dir=species_caracteristics_dir,
+        data_dir=data_dir,
+        recordings_csv=recordings_csv,
         audios_dir=audios_dir,
     )
 
-    if scrap_species:
-        scrapper.scrap_species()
+    if scrap_recordings:
+        scrapper.scrap_species_api()
 
-    scrapper.scrap_audios_api()
+    scrapper.download_audios()
 
 
 if __name__ == "__main__":
